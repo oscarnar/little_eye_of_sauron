@@ -33,7 +33,7 @@ class SearchPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Búsqueda de videos',
+                  'Little Eye of Sauron',
                   style: Theme.of(context).textTheme.headline1!.apply(
                         color: PColors.white,
                         fontSizeDelta: 2,
@@ -42,7 +42,7 @@ class SearchPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 Text(
-                  'Proyecto final de Cloud Computing.',
+                  'There are eyes in many places, but we have one in your pocket.',
                   style: Theme.of(context).textTheme.subtitle1!.apply(
                         color: PColors.white,
                         fontWeightDelta: 1,
@@ -54,64 +54,23 @@ class SearchPage extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.8,
-                  child: GridView.custom(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4, childAspectRatio: 4 / 3),
-                    childrenDelegate: SliverChildListDelegate(
-                      [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: VideoContainer(
-                            img:
-                                "https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1",
-                            title: "Title of the video",
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: VideoContainer(
-                            img:
-                                "https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1",
-                            title: "Title of the video",
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: VideoContainer(
-                            img:
-                                "https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1",
-                            title: "Title of the video",
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: VideoContainer(
-                            img:
-                                "https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1",
-                            title: "Title of the video",
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: VideoContainer(
-                            img:
-                                "https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1",
-                            title: "Title of the video",
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: VideoContainer(
-                            img:
-                                "https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1",
-                            title: "Title of the video",
-                          ),
-                        ),
-                      ],
+                  child: GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      childAspectRatio: 4 / 3,
                     ),
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const VideoContainer(
+                        img:
+                            "https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1",
+                        title: "Title of the video",
+                      );
+                    },
                   ),
                 )
               ],

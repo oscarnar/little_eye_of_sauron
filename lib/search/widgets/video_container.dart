@@ -14,6 +14,8 @@ class VideoContainer extends StatelessWidget {
     return Container(
       height: 300,
       width: 400,
+      padding: const EdgeInsets.all(2),
+      margin: const EdgeInsets.all(8),
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -24,10 +26,9 @@ class VideoContainer extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
+      child: Stack(
         children: [
           Container(
-            height: 250,
             width: 400,
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -36,21 +37,24 @@ class VideoContainer extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: 50,
-            width: 400,
-            decoration: const BoxDecoration(
-              color: Colors.black87,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                title!,
-                style: Theme.of(context).textTheme.subtitle1!.apply(
-                      color: PColors.white,
-                      fontWeightDelta: 1,
-                    ),
-                textAlign: TextAlign.left,
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 50,
+              width: 400,
+              decoration: const BoxDecoration(
+                color: Colors.black87,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  title!,
+                  style: Theme.of(context).textTheme.subtitle1!.apply(
+                        color: PColors.white,
+                        fontWeightDelta: 1,
+                      ),
+                  textAlign: TextAlign.left,
+                ),
               ),
             ),
           ),

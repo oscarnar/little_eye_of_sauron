@@ -113,7 +113,12 @@ class SearchWidgetState extends State<SearchWidget> {
                       itemCount: state.suggestions.length,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            widget.textEditControler.text =
+                                state.suggestions[index];
+                            BlocProvider.of<SearchCubit>(context)
+                                .onSearch(state.suggestions[index]);
+                          },
                           title: RichText(
                             text: TextSpan(
                               children: [

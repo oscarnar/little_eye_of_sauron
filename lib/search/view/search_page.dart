@@ -88,23 +88,16 @@ class SearchPage extends StatelessWidget {
                         ),
                         itemCount: state.results.length,
                         itemBuilder: (BuildContext context, int index) {
-                          print(state.results[index].urlImage);
-                          print(state.results[index].urlGif);
-                          print(state.results[index].urlVideo);
                           return InkWell(
                             onTap: () {
-                              // if (!await launch(
-                              //     state.results[index].urlVideo)) {
-                              //   throw 'Could not launch';
-                              // }
                               launch(
-                                'https://' + state.results[index].urlVideo,
+                                'https://${state.results[index].urlVideo}',
                               );
                             },
                             child: VideoContainer(
-                              img: 'https://' + state.results[index].urlGif,
-                              // 'https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2014/06/GIF.gif?fit=640%2C360&quality=80&ssl=1',
+                              img: 'https://${state.results[index].urlGif}',
                               title: state.results[index].name,
+                              labels: state.results[index].etiqueta,
                             ),
                           );
                         },

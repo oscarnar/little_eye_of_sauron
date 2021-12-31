@@ -13,18 +13,20 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit() : super(const SearchInitial());
 
   static final List<String> _labels = [
-    'Car',
-    'Bike',
-    'Gun',
-    'Person',
-    'Cat',
-    'Dog',
     'Organism',
     'Magenta',
     'Gas',
     'Technology',
     'Electricity',
     'Circle',
+    'Darkness',
+    'Logo',
+    'Brand',
+    'Electric blue',
+    'Font',
+    'Macro photography',
+    'Graphics',
+    'Sky',
   ];
 
   void onSearchQueryChanged(String query) {
@@ -45,14 +47,10 @@ class SearchCubit extends Cubit<SearchState> {
   void onSearch(String query) async {
     final url = Uri.parse(Global.url + query);
     emit(const SearchLoading());
-    print(url);
-    var response = await http.get(url);
-    print(response);
-    List result = jsonDecode(response.body) as List;
-    // add(CompiledEvent(result: result['response']));
-    List<Video> videosResult = [];
+    final response = await http.get(url);
+    final result = jsonDecode(response.body) as List;
+    final videosResult = <Video>[];
     for (var i = 0; i < result.length; i++) {
-      print(result[i]['url_image'] as String);
       final video = Video(
         name: result[i]!['name'] as String,
         urlVideo: result[i]['url_video'] as String,
